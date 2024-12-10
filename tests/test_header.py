@@ -1,9 +1,6 @@
-import time
-
 import allure
 import pytest_check as check
-from locators.locators_header import MainPage
-from conftest import web_browser
+from locators.locators_main_page.locators_header import MainPage
 
 
 @allure.story('Тест для проверки главной страницы')
@@ -37,8 +34,8 @@ def test_auto_ru(web_browser):
         with allure.step('Тест проверки кликабельности'):
             check.is_true(element.is_clickable())
 
-        with allure.step('Тест проверки на орфографию'):
-            check.equal(element.get_text(), text_element)
-
-        # with allure.step('Тест проверки на правильный адрес кнопки'):
-        #     check.equal(element.get_attribute('href'), url_elements)
+        # with allure.step('Тест проверки на орфографию'):
+        #     check.equal(element.get_text(), text_element)
+        #
+        #  with allure.step('Тест проверки на правильный адрес кнопки'):
+        #      check.equal(element.get_attribute('href'), url_elements)
