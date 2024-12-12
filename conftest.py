@@ -16,27 +16,26 @@ def web_browser(request):
 
     # Do teardown (this code will be executed after each test):
 
-    if request.node.rep_call.failed:
-        # Make the screen-shot if test failed:
-        try:
-            browser.execute_script("document.body.bgColor = 'white';")
+    # Make the screen-shot if test failed:
+    try:
+        browser.execute_script("document.body.bgColor = 'white';")
 
-            # Make screen-shot for local debug:
-            browser.save_screenshot('screenshots/' + str(uuid.uuid4()) + '.png')
+        # Make screen-shot for local debug:
+        browser.save_screenshot('screenshots/' + str(uuid.uuid4()) + '.png')
 
-            # Attach screenshot to Allure report:
-            allure.attach(browser.get_screenshot_as_png(),
-                          name=request.function.__name__,
-                          attachment_type=allure.attachment_type.PNG)
+        # Attach screenshot to Allure report:
+        allure.attach(browser.get_screenshot_as_png(),
+                      name=request.function.__name__,
+                      attachment_type=allure.attachment_type.PNG)
 
-            # For happy debugging:
-            print('URL: ', browser.current_url)
-            print('Browser logs:')
-            for log in browser.get_log('browser'):
-                print(log)
+        # For happy debugging:
+        print('URL: ', browser.current_url)
+        print('Browser logs:')
+        for log in browser.get_log('browser'):
+            print(log)
 
-        except:
-            pass  # just ignore any errors here
+    except:
+        pass  # just ignore any errors here
 
     browser.quit()
 

@@ -16,3 +16,4 @@ class MainPage(WebPage):
     # btn_headers_domain = WebElement(xpath='//div[@id="menu-item"]//span[contains(text(),"Домены")]')
 
     btn_logo_autoru = WebElement(xpath='//a[@class="Header__logoLink"]')
+    logos_cars = ManyWebElements(xpath = '//img[@class="IndexSuperMark__image"]') # Логотипы машин

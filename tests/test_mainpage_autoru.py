@@ -1,6 +1,5 @@
 import allure
-import pytest_check as check
-from locators.locators_main_page.locators_main_page_autoru import MainPage
+from locators.locators_main_page_autoru import MainPage
 
 
 @allure.story('Тест для проверки главной страницы')
@@ -9,4 +8,3 @@ def test_auto_ru(web_browser):
 
     page = MainPage(web_browser)
 
-    

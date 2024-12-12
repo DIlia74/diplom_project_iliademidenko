@@ -1,6 +1,6 @@
 import allure
 import pytest_check as check
-from locators.locators_main_page.locators_footer import MainPage
+from locators.locators_footer import MainPage
 
 
 @allure.story('Тест для проверки главной страницы')

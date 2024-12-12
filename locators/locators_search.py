@@ -15,3 +15,4 @@ class MainPage(WebPage):
 
     # btn_headers_domain = WebElement(xpath='//div[@id="menu-item"]//span[contains(text(),"Домены")]')
     btn_search = WebElement(xpath='//input[@maxlength="80"]')
+    btn_podskazka_query = WebElement(xpath='//div[@class="SearchLineSuggestItem"]')

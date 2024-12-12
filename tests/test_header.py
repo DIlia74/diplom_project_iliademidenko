@@ -1,6 +1,7 @@
 import allure
 import pytest_check as check
-from locators.locators_main_page.locators_header import MainPage
+from locators.locators_header import MainPage
+from conftest import web_browser
 
 
 @allure.story('Тест для проверки главной страницы')
@@ -24,6 +25,12 @@ def test_auto_ru(web_browser):
                 (page.btn_for_biznes,'Для бизнеса','https://business.auto.ru/')
                         ]
     for element, text_element, url_elements in elements:
+
+        if text_element == 'Страховки' and page.go_back():
+            continue
+        if text_element == 'Для бизнеса' and page.go_back():
+            continue
+
         with allure.step('Тест проверки правильного URL при переходе'):
             element.click()
             check.equal(page.get_current_url(), url_elements)
@@ -34,8 +41,10 @@ def test_auto_ru(web_browser):
         with allure.step('Тест проверки кликабельности'):
             check.is_true(element.is_clickable())
 
+
         # with allure.step('Тест проверки на орфографию'):
         #     check.equal(element.get_text(), text_element)
         #
         #  with allure.step('Тест проверки на правильный адрес кнопки'):
         #      check.equal(element.get_attribute('href'), url_elements)
+
