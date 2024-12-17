@@ -9,14 +9,15 @@ class MainPage(WebPage):
 
     def __init__(self, web_driver, url=''):
         if not url:
-            url = os.getenv("MAIN_URL") or 'https://auto.ru/'
+            url = os.getenv("MAIN_URL") or 'https://www.kpc.by/'
 
         super().__init__(web_driver, url)
 
-    # btn_headers_domain = WebElement(xpath='//div[@id="menu-item"]//span[contains(text(),"Домены")]')
-    btn_moscow = WebElement(xpath='//a[@href="https://auto.ru/moskva/"]')
-    btn_saint_petersburg = WebElement(xpath='//a[@href="https://auto.ru/sankt-peterburg/"]')
-    btn_vladimir = WebElement(xpath='//a[@href="https://auto.ru/vladimir/"]')
-    btn_volgograd = WebElement(xpath='//a[@href="https://auto.ru/volgograd/"]')
-    btn_voronezh = WebElement(xpath='//a[@href="https://auto.ru/voronezh/"]')
-    btn_ekaterinburg = WebElement(xpath='//a[@href="https://auto.ru/ekaterinburg/"]')
+    btn_footer_about = WebElement(xpath='//div[@class="f-col-3 menu"]//a[@href="about"]')           # О нас футер
+    btn_footer_news = WebElement(xpath='//div[@class="f-col-3 menu"]//a[@href="news"]')             # Новости
+    btn_footer_shopping = WebElement(xpath='//div[@class="f-col-3 menu"]//a[@href="shipping"]')     # Доставка и оплата
+    btn_footer_contacts = WebElement(xpath='//div[@class="f-col-3 menu"]//a[@href="contacts"]')     # Контакты
+    btn_footer_help = WebElement(xpath='//div[@class="f-col-3 menu"]//a[@href="help"]')             # Помощь
+    btn_catalog_produkcii = WebElement(xpath='//div[@class="f-col-2 menu"]//a[@href="catalog/"]')   # Каталог продукции
+    btn_services = WebElement(xpath='//div[@class="f-col-2 menu"]//a[@href="services"]')            # Сервис и услуги
+    btn_maintenance = WebElement(xpath='//div[@class="f-col-2 menu"]//a[@href="pokopijnoe-obsluzhivanie"]')     # Покопийное обслуживание

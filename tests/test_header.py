@@ -10,26 +10,16 @@ def test_auto_ru(web_browser):
 
     page = MainPage(web_browser)
 
-    elements = [(page.btn_cars,'Легковые','https://auto.ru/cars/all/'),
-                (page.btn_commercial,'Коммерческие','https://auto.ru/lcv/all/'),
-                (page.btn_electro,'Электро','https://auto.ru/electro/'),
-                (page.btn_chinese,'Китайские','https://auto.ru/catalog/cars/chinese/'),
-                (page.btn_moto,'Мото','https://auto.ru/motorcycle/all/'),
-                (page.btn_history,'Отчёты','https://auto.ru/history/'),
-                (page.btn_cars_otchet,'Выкуп','https://auto.ru/buyout/'),
-                (page.btn_insurance,'Кредиты','https://auto.ru/promo/finance/'),
-                (page.btn_ocenka_auto,'Оценка авто','https://auto.ru/evaluation/cars/'),
-                (page.btn_strahovka,'Страховки','https://auto.ru/promo/osago-tbank/'),
-                (page.btn_dealers,'Гараж','https://auto.ru/garage/'),
-                (page.btn_journals,'Журнал','https://auto.ru/mag/'),
-                (page.btn_for_biznes,'Для бизнеса','https://business.auto.ru/')
-                        ]
+    elements = [(page.btn_about,'О нас','https://www.kpc.by/about'),
+                (page.btn_news,'Новости','https://www.kpc.by/news'),
+                (page.btn_shopping,'Доставка и оплата','https://www.kpc.by/shipping'),
+                (page.btn_contacts,'Контакты','https://www.kpc.by/contacts'),
+                (page.btn_help,'Помощь','https://www.kpc.by/help'),
+                (page.btn_catalog_produkcii,'КАТАЛОГ ПРОДУКЦИИ','https://www.kpc.by/catalog/'),
+                (page.btn_servisiprodukcii,'СЕРВИС И УСЛУГИ','https://www.kpc.by/services'),
+                (page.btn_pokopijnoeobsl,'ПОКОПИЙНОЕ ОБСЛУЖИВАНИЕ KYOCERA','https://www.kpc.by/pokopijnoe-obsluzhivanie')
+                ]
     for element, text_element, url_elements in elements:
-
-        if text_element == 'Страховки' and page.go_back():
-            continue
-        if text_element == 'Для бизнеса' and page.go_back():
-            continue
 
         with allure.step('Тест проверки правильного URL при переходе'):
             element.click()
@@ -41,10 +31,9 @@ def test_auto_ru(web_browser):
         with allure.step('Тест проверки кликабельности'):
             check.is_true(element.is_clickable())
 
+        with allure.step('Тест проверки на орфографию'):
+            check.equal(element.get_text(), text_element)
 
-        # with allure.step('Тест проверки на орфографию'):
-        #     check.equal(element.get_text(), text_element)
-        #
-        #  with allure.step('Тест проверки на правильный адрес кнопки'):
-        #      check.equal(element.get_attribute('href'), url_elements)
+        with allure.step('Тест проверки на правильный адрес кнопки'):
+             check.equal(element.get_attribute('href'), url_elements)
 
