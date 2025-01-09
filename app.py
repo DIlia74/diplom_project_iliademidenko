@@ -41,7 +41,6 @@ def ui_tests():
 
 @app.route("/ui_test_header")
 def ui_test_header():
-    """ Эта функция запуская и отвечает за генерацию отчета allure. """
 
     cmd = ["./scriptsh/ui_test_header.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,

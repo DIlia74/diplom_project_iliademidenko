@@ -3,6 +3,7 @@
 
 import time
 from termcolor import colored
+import re
 
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
@@ -219,6 +220,25 @@ class WebElement(object):
 
         # Удалить элемент:
         self._web_driver.execute_script("arguments[0].remove();", element)
+
+    def move_to(self, x_offset=0, y_offset=0, hold_seconds=0):
+        """Наведение на элемент""" # спасибо Максиму
+
+        element = self.find()
+
+        if element:
+            action = ActionChains(self._web_driver)
+            action.move_to_element_with_offset(element, x_offset, y_offset). \
+                pause(hold_seconds).pause(1).perform()
+        else:
+            msg = 'Element with locator {0} not found'
+            raise AttributeError(msg.format(self._locator))
+
+    def is_valid_email(self,email):
+        # Регулярное выражение для проверки валидности email спасибо интернету
+        pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        return re.match(pattern, email) is not None
+
 
 
 class ManyWebElements(WebElement):

@@ -6,7 +6,7 @@ from conftest import web_browser
 
 @allure.story('Тест для проверки главной страницы')
 @allure.feature('Тест для проверки хедара')
-def test_auto_ru(web_browser):
+def test_kpc_by(web_browser):
 
     page = MainPage(web_browser)
 

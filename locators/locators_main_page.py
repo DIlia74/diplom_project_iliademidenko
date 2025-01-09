@@ -14,5 +14,3 @@ class MainPage(WebPage):
         super().__init__(web_driver, url)
 
     # btn_headers_domain = WebElement(xpath='//div[@id="menu-item"]//span[contains(text(),"Домены")]')
-    hdh = WebElement(xpath='/html/body/header/div/div[1]/div[1]/div[1]/a/img')
-

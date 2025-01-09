@@ -1,23 +1,29 @@
 import requests
+import pytest_check as check
 
 
-def test_api():
+def test_api1():
     url = 'https://www.kpc.by/'
-    response = requests.get(url)
+    headers = {}
+    response = requests.request('GET', url, headers=headers)
 
-    print(response.status_code, 'status_code')
-    print(response.headers, 'headers')
-    print(response.cookies, 'cookies')
-    print(response.request, 'request')
+    print(response.status_code)
+
+    assert response.status_code == 200
+    check.equal(response.status_code, 200)
 
 
-def test_api_get():
-    url = 'https://www.kpc.by/search'
-    query = {'search_query': 'принтер'}
-    response = requests.get(url, params=query)
 
-    print(response.headers, 'headers')
-    print(response.status_code, 'status_code')
-    print(response.url, 'url')
+payload = {
+    
+}
+requests.post('https://www.kpc.by/assets/components/minishop2/action.php', data='')
 
-    print(response.json(), 'json')
+
+
+
+
+
+
+
+
