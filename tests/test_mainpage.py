@@ -103,12 +103,21 @@ def test_carousel_kpc_by1(web_browser):
 
     page = MainPage(web_browser)
 
+    firstph = page.firstph # перменная с локатором первой картинки
+    thirdph = page.thirdph # перменная с локатором 3 картинки
+
     with allure.step('Тест перехода в раздел по картинке и правильного адреса'):
         for i in range(3):
             page.left_btn.click()
         page.thirdph.click()
         time.sleep(3)
-        check.equal(page.get_current_url(),'https://www.kpc.by/catalog/copiers/%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B5-%D0%BC%D1%84%D1%83-a4/ma3500cix')
+
+    with allure.step('Проверка первая картинка не равна третьей'):
+        check.not_equal(firstph, thirdph)
+
+    with allure.step('Проверка: третья картинка равна третьей картинке'):
+        check.equal(firstph, thirdph) # две проверки первая перменная не равно третей переменной и вторая проаерка: что третья картинка равно третей картинки
+        # check.equal(page.get_current_url(),'https://www.kpc.by/catalog/copiers/%D1%86%D0%B2%D0%B5%D1%82%D0%BD%D1%8B%D0%B5-%D0%BC%D1%84%D1%83-a4/ma3500cix')
 
 
 @allure.story('Тест для проверки главной страницы')
