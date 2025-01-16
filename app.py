@@ -30,7 +30,7 @@ def error():
 def ui_tests():
     """ Эта функция запуская и отвечает за генерацию отчета allure. """
 
-    cmd = ["./scriptsh/ui_tests.sh"]
+    cmd = ["C:/Program Files/Git/bin/bash.exe","./scriptsh/ui_tests.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
                           stdin=subprocess.PIPE,
@@ -68,7 +68,7 @@ def ui_test_footer():
 def ui_test_search():
     """ Эта функция запуская и отвечает за генерацию отчета allure. """
 
-    cmd = ["./scriptsh/ui_test_search.sh"]
+    cmd = ["C:/Program Files/Git/bin/bash.exe","./scriptsh/ui_test_search.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
                           stdin=subprocess.PIPE,
@@ -81,7 +81,7 @@ def ui_test_search():
 def api_test():
     """ Эта функция запуская и отвечает за генерацию отчета allure. """
 
-    cmd = ["./scriptsh/api_tests.sh"]
+    cmd = ["C:/Program Files/Git/bin/bash.exe","./scriptsh/api_tests.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
                           stdin=subprocess.PIPE,
@@ -94,7 +94,7 @@ def api_test():
 def allure_ui():
     """ Эта функция запуская и отвечает за генерацию отчета allure. """
 
-    cmd = ["./scriptsh/allure_ui.sh"]
+    cmd = ["C:/Program Files/Git/bin/bash.exe","./scriptsh/allure_ui.sh"]
     with subprocess.Popen(cmd, stdout=subprocess.PIPE,
                           stderr=subprocess.PIPE,
                           stdin=subprocess.PIPE,

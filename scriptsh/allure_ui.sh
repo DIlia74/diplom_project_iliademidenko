@@ -1,3 +1,3 @@
 #!/bin/bash
 
-allure serve results
+allure serve reports
